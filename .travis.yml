@@ -3,6 +3,10 @@ language: go
 go:
   - "1.8"
 
+env:
+  global:
+    - GH_REF: https://github.com/nickxwei/nickxwei.github.io
+
 # Specify which branches to build using a safelist
 branches:
   only:
@@ -26,16 +30,3 @@ after_script:
   - git push --force --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master
   - git push --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master --tags
 
-env:
-  global:
-    - GH_REF: [https://github.com/nickxwei/nickxwei.github.io]
-
-deploy:
-  provider: pages 
-  skip-cleanup: true 
-  local-dir: public 
-  target-branch: master 
-  github-token: $GITHUB_TOKEN 
-  keep-history: true
-  on:
-    branch: master 

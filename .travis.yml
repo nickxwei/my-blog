@@ -13,7 +13,8 @@ branches:
     - master
 
 install:
-  - go get -u -v github.com/spf13/hugo
+  - wget -qO- https://api.github.com/repos/gohugoio/hugo/releases/latest | sed -r -n '/browser_download_url/{/Linux-64bit.deb/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p;q}}' | xargs wget
+  - sudo dpkg -i hugo*.deb
   - git submodule add https://github.com/Track3/hermit.git themes/hermit
 
 script:

@@ -22,8 +22,8 @@ script:
 after_script:
   - cd ./public
   - git init
-  - git config "[nickxwei]"
-  - git config "[invalidwei@gmail.com]"
+  - git config "nickxwei"
+  - git config "invalidwei@gmail.com"
   - git add .
   - git comit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
   #Github Pages

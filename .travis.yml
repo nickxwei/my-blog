@@ -5,7 +5,7 @@ go:
 
 env:
   global:
-    - GH_REF: https://github.com/nickxwei/nickxwei.github.io
+    - GH_REF: github.com/nickxwei/nickxwei.github.io
 
 # Specify which branches to build using a safelist
 branches:
@@ -26,7 +26,5 @@ after_script:
   - git config user.email "invalidwei@gmail.com"
   - git add .
   - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
-  #Github Pages
   - git push --force --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master
-  - git push --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master --tags
 

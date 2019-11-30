@@ -9,9 +9,8 @@ branches:
     - master
 
 install:
-  - wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb
-  - sudo dpkg -i hugo*.d
-  - git clone https://github.com/Track3/hermit.git themes/hermit
+  - go get -u -v github.com/spf13/hugo
+  - git submodule add https://github.com/Track3/hermit.git themes/hermit
 
 script:
   - hugo
